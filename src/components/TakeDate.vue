@@ -4,10 +4,11 @@
             <v-text-field v-model="firstName" label="Nome" :rules="firstNameRules"></v-text-field>
 
             <v-text-field v-model="lastName" label="Cognome" :rules="lastNameRules"></v-text-field>
+            <v-text-field v-model="email" label="Email" :rules="emailRules"></v-text-field>
             <VueDatePicker class="pa-4" v-model="date" locale="it" disable-month-year-select :enable-time-picker="false"
                 cancelText="Annulla" selectText="Seleziona" placeholder="Seleziona una data e un orario">
             </VueDatePicker>
-            <v-btn type="submit" color="success" block class="mt-2" @click="submitForm" disabled>Prenota</v-btn>
+            <v-btn type="submit" color="success" block class="mt-2" @click="submitForm">Prenota</v-btn>
         </v-form>
     </v-sheet>
 </template>
@@ -43,6 +44,17 @@ export default {
                 },
             ],
             email: '',
+            emailRules: [
+                value => {
+                    var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+                    if (value?.length > 3 && value.match(validRegex)) {
+                        return true
+                    } else {
+                        return 'La tua mail non è valida'
+                    }
+                },
+            ],
             selectedDate: null,
             menu: false,
             date: ''
@@ -54,7 +66,7 @@ export default {
     methods: {
         submitForm() {
             if (this.$refs.form.validate() && this.date) {
-                alert('Prenotazione effettuata con successo');
+                alert('Prenotazione effettuata con successo: ' + this.date);
             } else {
                 alert('Per favore, compila tutti i campi obbligatori e seleziona una data.');
             }
