@@ -1,15 +1,9 @@
 <template>
   <div id="app">
-    <TakeDate />
+    <RouterView />
   </div>
 </template>
 
-<script>
-import TakeDate from './components/TakeDate.vue';
-
-export default {
-  components: {
-    TakeDate,
-  },
-};
+<script setup>
+import { RouterView } from "vue-router";
 </script>
