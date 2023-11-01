@@ -1,5 +1,8 @@
 <template>
     <v-sheet width="400" class="mx-auto pa-16 elevation-4 rounded-shaped my-5">
+        <v-row class="d-flex justify-center my-3">
+            <v-btn size="x-small" color="blue-lighten-2">admin</v-btn>
+        </v-row>
         <p class="text-center font-weight-bold text-h4 my-3">
             Prenotazione appuntamento dentista
         </p>
