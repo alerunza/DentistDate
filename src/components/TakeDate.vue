@@ -1,10 +1,12 @@
 <template>
-    <v-sheet width="400" class="mx-auto pa-16">
+    <v-sheet width="400" class="mx-auto pa-16 elevation-4 rounded-shaped my-5">
+        <p class="text-center font-weight-bold text-h4 my-3">
+            Prenotazione appuntamento dentista
+        </p>
         <v-form fast-fail ref="form">
-            <v-text-field v-model="firstName" label="Nome" :rules="firstNameRules"></v-text-field>
-
-            <v-text-field v-model="lastName" label="Cognome" :rules="lastNameRules"></v-text-field>
-            <v-text-field v-model="email" label="Email" :rules="emailRules"></v-text-field>
+            <v-text-field class="pa-1" v-model="firstName" label="Nome" :rules="firstNameRules"></v-text-field>
+            <v-text-field class="pa-1" v-model="lastName" label="Cognome" :rules="lastNameRules"></v-text-field>
+            <v-text-field class="pa-1" v-model="email" label="Email" :rules="emailRules"></v-text-field>
             <VueDatePicker class="pa-4" v-model="date" locale="it" disable-month-year-select :enable-time-picker="false"
                 cancelText="Annulla" selectText="Seleziona" placeholder="Seleziona una data e un orario">
             </VueDatePicker>
