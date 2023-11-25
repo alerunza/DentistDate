@@ -11,7 +11,7 @@
             <v-text-field class="pa-1" v-model="lastName" label="Cognome" :rules="lastNameRules"></v-text-field>
             <v-text-field class="pa-1" v-model="email" label="Email" :rules="emailRules"></v-text-field>
             <VueDatePicker class="pa-4" v-model="date" locale="it" hide-offset-dates disable-month-year-select
-                :enable-time-picker="false" :format="format" :disabled-dates="disabledDates" cancelText="Annulla"
+                :enable-time-picker="false" :format="formatDate" :disabled-dates="disabledDates" cancelText="Annulla"
                 selectText="Seleziona" placeholder="Seleziona una data">
             </VueDatePicker>
             <v-btn type="submit" color="success" block class="mt-2" @click="inviaDati">Prenota</v-btn>
@@ -79,7 +79,7 @@ export default {
             const giorno = data.getDate().toString().padStart(2, '0');
             const mese = (data.getMonth() + 1).toString().padStart(2, '0');
             const anno = data.getFullYear();
-            return `${anno}-${mese}-${giorno}`;
+            return `${giorno}/${mese}/${anno}`;
         },
         inviaDati() {
             if (!this.firstName || !this.lastName || !this.email || !this.date) {
