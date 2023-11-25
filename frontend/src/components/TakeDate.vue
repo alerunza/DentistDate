@@ -79,7 +79,7 @@ export default {
             const giorno = data.getDate().toString().padStart(2, '0');
             const mese = (data.getMonth() + 1).toString().padStart(2, '0');
             const anno = data.getFullYear();
-            return `${giorno}/${mese}/${anno}`;
+            return `${anno}-${mese}-${giorno}`;
         },
         inviaDati() {
             if (!this.firstName || !this.lastName || !this.email || !this.date) {
@@ -93,7 +93,7 @@ export default {
             const dataFormattata = this.formatDate(this.date);
             axios({
                 method: 'post',
-                url: 'http://localhost:3000/api/prenotazioni',
+                url: 'http://192.168.1.23:3000/api/prenotazioni',
                 data: {
                     nome: this.firstName,
                     cognome: this.lastName,

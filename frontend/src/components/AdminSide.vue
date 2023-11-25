@@ -43,7 +43,7 @@ export default {
         };
     },
     created() {
-        axios.get('http://localhost:3000/api/prenotazioni')
+        axios.get('http://192.168.1.23:3000/api/prenotazioni')
             .then(response => {
                 this.prenotazioni = response.data;
                 console.log(this.prenotazioni);
